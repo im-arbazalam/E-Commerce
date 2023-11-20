@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name="product")
 @FieldDefaults(level= AccessLevel.PRIVATE)
+@Builder
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
