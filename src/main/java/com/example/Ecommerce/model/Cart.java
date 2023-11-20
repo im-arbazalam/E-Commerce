@@ -1,9 +1,17 @@
 package com.example.Ecommerce.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
+@Entity
+@Getter
+@Setter
+@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="cart")
+@FieldDefaults(level= AccessLevel.PRIVATE)
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
