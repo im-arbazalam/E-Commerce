@@ -9,9 +9,7 @@ import java.sql.Date;
 
 
 @Entity
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="ordered")

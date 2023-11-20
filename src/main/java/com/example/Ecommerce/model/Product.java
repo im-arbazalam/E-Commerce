@@ -7,8 +7,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Entity
-@Getter
-@Setter@RequiredArgsConstructor
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="product")

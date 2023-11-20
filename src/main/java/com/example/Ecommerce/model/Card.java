@@ -8,9 +8,7 @@ import lombok.experimental.FieldDefaults;
 import java.sql.Date;
 
 @Entity
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="card")
@@ -26,7 +24,7 @@ public class Card {
     int cvv;
 
     Date expiryDate;
-
+    @Column(CardType= "ENUM('MASTERCARD','RUPAY','VISA')")
     @Enumerated(EnumType.STRING)
     CardType cardType;
 }
