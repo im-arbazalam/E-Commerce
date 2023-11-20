@@ -24,7 +24,10 @@ public class Card {
     int cvv;
 
     Date expiryDate;
-    @Column(CardType= "ENUM('MASTERCARD','RUPAY','VISA')")
     @Enumerated(EnumType.STRING)
     CardType cardType;
+
+    @ManyToOne
+    @JoinColumn
+    Customer customer;
 }

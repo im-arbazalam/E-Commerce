@@ -16,5 +16,16 @@ public class Item {
     int id;
 
     int requiredQuantity;
+    @ManyToOne
+    @JoinColumn
+    Cart cart;
+
+    @ManyToOne
+    @JoinColumn
+    Product product;
+
+    @ManyToOne
+    @JoinColumn
+    Ordered order;
 
 }

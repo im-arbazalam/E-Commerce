@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Data
@@ -27,4 +30,13 @@ public class Customer {
     String mobNo;
 
     String address;
+
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    List<Card> cards = new ArrayList<>();
+
+    @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
+    Cart cart;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    List<Ordered> orderList = new ArrayList<>();
 }

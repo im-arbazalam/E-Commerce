@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -23,4 +26,8 @@ public class Seller {
     Integer age;
 
     String mobNo;
+
+
+    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
+    List<Product> products = new ArrayList<>();
 }
