@@ -1,5 +1,6 @@
 package com.example.Ecommerce.service;
 
+import com.example.Ecommerce.Enum.ProductCategory;
 import com.example.Ecommerce.dto.RequestDto.ProductRequestDto;
 import com.example.Ecommerce.dto.ResponseDto.ProductResponseDto;
 import com.example.Ecommerce.exception.InvalidSellerException;
@@ -10,6 +11,9 @@ import com.example.Ecommerce.repository.SellerRepository;
 import com.example.Ecommerce.transformer.ProductTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -39,4 +43,17 @@ public class ProductService {
         // prepare Response Dto
         return ProductTransformer.ProductToProductResponseDto(product);
     }
+
+    public List<ProductResponseDto> getAllProductsByCategory(ProductCategory category){
+
+        List<Product> products = productRepository.findByProductCategory(category);
+
+        List<ProductResponseDto> productResponseDtos= new ArrayList<>();
+        for(Product product: products){
+            productResponseDtos.add(ProductTransformer.ProductToProductResponseDto(product));
+        }
+
+        return productResponseDtos;
+    }
+
 }
