@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name="seller")
 @FieldDefaults(level= AccessLevel.PRIVATE)
+@Builder //we can create an object of Seller class jis class ko entity m convert karna h uske upr @Builder likho
 public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
